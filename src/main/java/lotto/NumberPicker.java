@@ -2,6 +2,7 @@ package lotto;
 
 import java.util.List;
 
+@FunctionalInterface
 public interface NumberPicker {
     List<Integer> pickNumbers(int startInclusive, int endInclusive, int count);
 }
