@@ -53,4 +53,13 @@ class LottoTest extends TestSupport {
                 .hasMessageContaining(INVALID_LOTTO_NUMBER_DUPLICATE.getMessage());
     }
 
+    @Test
+    void NumberPicker를_사용하여_로또를_발행할_수_있다() {
+        // given
+        NumberPicker picker = (start, end, count) -> List.of(1, 2, 3, 4, 5, 6);
+
+        // expected
+        assertThatCode(() -> Lotto.issue(picker))
+                .doesNotThrowAnyException();
+    }
 }

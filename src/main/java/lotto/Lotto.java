@@ -1,5 +1,6 @@
 package lotto;
 
+import static lotto.LottoNumber.*;
 import static lotto.exception.ExceptionMessage.INVALID_LOTTO_NUMBER_DUPLICATE;
 import static lotto.exception.ExceptionMessage.INVALID_LOTTO_NUMBER_SIZE;
 
@@ -21,6 +22,14 @@ public class Lotto {
                 .map(LottoNumber::new)
                 .toList();
         return new Lotto(lottoNumbers);
+    }
+
+    public static Lotto issue(final NumberPicker picker) {
+        final List<LottoNumber> numbers = picker.pickNumbers(getMinLottoNumber(), getMaxLottoNumber(), NUMBERS_SIZE)
+                .stream()
+                .map(LottoNumber::new)
+                .toList();
+        return new Lotto(numbers);
     }
 
     private void validate(List<LottoNumber> numbers) {

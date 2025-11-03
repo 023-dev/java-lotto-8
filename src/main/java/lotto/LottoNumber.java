@@ -22,4 +22,12 @@ public record LottoNumber(int number) {
         return number < MIN_NUMBER
                 || number > MAX_NUMBER;
     }
+
+    public static int getMinLottoNumber() {
+        return MIN_NUMBER;
+    }
+
+    public static int getMaxLottoNumber() {
+        return MAX_NUMBER;
+    }
 }
