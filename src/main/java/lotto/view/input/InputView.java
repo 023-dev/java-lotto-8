@@ -1,8 +1,8 @@
 package lotto.view.input;
 
 import java.util.List;
-import lotto.LottoNumber;
-import lotto.Money;
+import lotto.model.LottoNumber;
+import lotto.model.Money;
 
 public interface InputView {
     Money readPaidMoney();

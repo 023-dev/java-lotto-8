@@ -1,4 +1,4 @@
-package lotto;
+package lotto.model;
 
 import static lotto.exception.ExceptionMessage.INVALID_WINNING_NUMBER_DUPLICATE;
 

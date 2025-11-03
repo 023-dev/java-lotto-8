@@ -4,6 +4,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.List;
 import lotto.base.TestSupport;
+import lotto.model.Lotto;
+import lotto.model.LottoNumber;
+import lotto.model.LottoPrize;
+import lotto.model.LottoResult;
+import lotto.model.Lottos;
+import lotto.model.WinningNumber;
 import org.junit.jupiter.api.Test;
 
 class LottosTest extends TestSupport {

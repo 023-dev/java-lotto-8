@@ -6,8 +6,8 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Pattern;
-import lotto.LottoNumber;
-import lotto.Money;
+import lotto.model.LottoNumber;
+import lotto.model.Money;
 import lotto.exception.LottoException;
 
 public class ConsoleInputView implements InputView {

@@ -1,4 +1,4 @@
-package lotto;
+package lotto.model;
 
 import java.util.List;
 import java.util.stream.IntStream;
@@ -12,7 +12,7 @@ public class LottoMachine {
     }
 
     public Lottos issueLotto(Money paidMoney) {
-        int issueCount = paidMoney.devide(LOTTO_PRICE);
+        int issueCount = paidMoney.divide(LOTTO_PRICE);
         List<Lotto> lottos = IntStream.range(0, issueCount)
                 .mapToObj(i -> Lotto.issue(picker))
                 .toList();

@@ -7,6 +7,9 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import java.util.List;
 import lotto.base.TestSupport;
 import lotto.exception.LottoException;
+import lotto.model.Lotto;
+import lotto.model.LottoNumber;
+import lotto.model.WinningNumber;
 import org.junit.jupiter.api.Test;
 
 class WinningNumberTest extends TestSupport {

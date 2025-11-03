@@ -2,9 +2,9 @@ package lotto.view.output;
 
 import java.util.List;
 import java.util.stream.Collectors;
-import lotto.LottoNumber;
-import lotto.LottoPrize;
-import lotto.LottoResult;
+import lotto.model.LottoNumber;
+import lotto.model.LottoPrize;
+import lotto.model.LottoResult;
 import lotto.dto.LottoResponse;
 
 public class ConsoleOutputView implements OutputView {

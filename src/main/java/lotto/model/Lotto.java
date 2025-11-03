@@ -1,6 +1,6 @@
-package lotto;
+package lotto.model;
 
-import static lotto.LottoNumber.*;
+import static lotto.model.LottoNumber.*;
 import static lotto.exception.ExceptionMessage.INVALID_LOTTO_NUMBER_DUPLICATE;
 import static lotto.exception.ExceptionMessage.INVALID_LOTTO_NUMBER_SIZE;
 

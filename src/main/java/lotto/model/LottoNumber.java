@@ -1,4 +1,4 @@
-package lotto;
+package lotto.model;
 
 import static lotto.exception.ExceptionMessage.INVALID_LOTTO_NUMBER_RANGE;
 

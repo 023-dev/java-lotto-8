@@ -4,6 +4,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.List;
 import lotto.base.TestSupport;
+import lotto.model.LottoMachine;
+import lotto.model.Lottos;
+import lotto.model.Money;
+import lotto.model.NumberPicker;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 

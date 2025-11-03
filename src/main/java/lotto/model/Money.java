@@ -1,4 +1,4 @@
-package lotto;
+package lotto.model;
 
 import static lotto.exception.ExceptionMessage.INVALID_MONEY_RANGE;
 import static lotto.exception.ExceptionMessage.INVALID_MONEY_UNIT;
@@ -14,7 +14,7 @@ public record Money(int amount) {
         validate(amount);
     }
 
-    public int devide(Money other) {
+    public int divide(Money other) {
         return amount() / other.amount();
     }
 
