@@ -6,10 +6,11 @@ import camp.nextstep.edu.missionutils.Console;
 import lotto.Money;
 import lotto.exception.LottoException;
 
-public class ConsoleInputView {
+public class ConsoleInputView implements InputView {
     private static final String WHITESPACE_REGEX = "\\s+";
     private static final String EMPTY = "";
 
+    @Override
     public Money readPaidMoney() {
         final String input = read();
         final int number = parseNumber(input);
