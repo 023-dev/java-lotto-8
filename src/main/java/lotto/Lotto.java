@@ -1,20 +1,35 @@
 package lotto;
 
+import static lotto.exception.ExceptionMessage.INVALID_LOTTO_NUMBER_SIZE;
+
 import java.util.List;
+import lotto.exception.LottoException;
 
 public class Lotto {
-    private final List<Integer> numbers;
+    private static final int NUMBERS_SIZE = 6;
 
-    public Lotto(List<Integer> numbers) {
+    private final List<LottoNumber> numbers;
+
+    private Lotto(List<LottoNumber> numbers) {
         validate(numbers);
         this.numbers = numbers;
     }
 
-    private void validate(List<Integer> numbers) {
-        if (numbers.size() != 6) {
-            throw new IllegalArgumentException("[ERROR] 로또 번호는 6개여야 합니다.");
+    public static Lotto from(List<Integer> numbers) {
+        List<LottoNumber> lottoNumbers = numbers.stream()
+                .map(LottoNumber::new)
+                .toList();
+        return new Lotto(lottoNumbers);
+    }
+
+    private void validate(List<LottoNumber> numbers) {
+        validateSize(numbers);
+    }
+
+    private void validateSize(final List<LottoNumber> numbers) {
+        if (numbers.size() != NUMBERS_SIZE) {
+            throw new LottoException(INVALID_LOTTO_NUMBER_SIZE);
         }
     }
 
-    // TODO: 추가 기능 구현
 }
