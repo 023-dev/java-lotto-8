@@ -63,4 +63,10 @@ public class Lotto {
     public List<LottoNumber> getNumbers() {
         return Collections.unmodifiableList(numbers);
     }
+
+    public int countMatches(final Lotto other) {
+        return (int) numbers.stream()
+                .filter(other.numbers::contains)
+                .count();
+    }
 }

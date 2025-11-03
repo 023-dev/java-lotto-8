@@ -22,10 +22,10 @@ class LottoMachineTest extends TestSupport {
         LottoMachine machine = new LottoMachine(picker);
 
         // when
-        List<Lotto> lottos = machine.issueLotto(money);
+        Lottos lottos = machine.issueLotto(money);
 
         // then
-        assertThat(lottos).hasSize(expectedCount);
+        assertThat(lottos.size()).isEqualTo(expectedCount);
     }
 }
 

@@ -22,11 +22,23 @@ public enum LottoPrize {
         this.description = description;
     }
 
-    public static LottoPrize of(int matchCount, boolean bonusMatch) {
+    public static LottoPrize from(int matchCount, boolean bonusMatch) {
         return Arrays.stream(values())
                 .filter(prize -> prize.matchCount == matchCount)
                 .filter(prize -> prize.bonusMatch == bonusMatch)
                 .findFirst()
                 .orElse(NONE);
+    }
+
+    public int getPrizeMoney() {
+        return prizeMoney;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public boolean isWinning() {
+        return this != NONE;
     }
 }

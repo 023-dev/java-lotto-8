@@ -23,4 +23,10 @@ public class WinningNumber {
             throw new LottoException(INVALID_WINNING_NUMBER_DUPLICATE);
         }
     }
+
+    public LottoPrize match(final Lotto lotto) {
+        int matchCount = winningLotto.countMatches(lotto);
+        boolean bonusMatch = lotto.contains(bonusNumber);
+        return LottoPrize.from(matchCount, bonusMatch);
+    }
 }

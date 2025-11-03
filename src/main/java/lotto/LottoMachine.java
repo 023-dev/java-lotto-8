@@ -11,10 +11,11 @@ public class LottoMachine {
         this.picker = picker;
     }
 
-    public List<Lotto> issueLotto(Money paidMoney) {
+    public Lottos issueLotto(Money paidMoney) {
         int issueCount = paidMoney.devide(LOTTO_PRICE);
-        return IntStream.range(0, issueCount)
+        List<Lotto> lottos = IntStream.range(0, issueCount)
                 .mapToObj(i -> Lotto.issue(picker))
                 .toList();
+        return new Lottos(lottos);
     }
 }
