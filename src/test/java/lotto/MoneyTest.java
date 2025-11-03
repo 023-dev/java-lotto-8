@@ -1,6 +1,7 @@
 package lotto;
 
 import static lotto.exception.ExceptionMessage.INVALID_MONEY_RANGE;
+import static lotto.exception.ExceptionMessage.INVALID_MONEY_UNIT;
 import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
@@ -39,5 +40,33 @@ class MoneyTest extends TestSupport {
         assertThatThrownBy(() -> new Money(amount))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(INVALID_MONEY_RANGE.getMessage());
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {1_000, 2_000, 5_000, 10_000, 100_000, 1_000_000})
+    void 천원_단위로_생성할_수_있다(int amount) {
+        // expected
+        assertThatCode(() -> new Money(amount))
+                .doesNotThrowAnyException();
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {1_001, 1_500, 2_500, 5_999, 10_100})
+    void 천원_단위가_아니면_예외가_발생한다(int amount) {
+        // expected
+        assertThatThrownBy(() -> new Money(amount))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(INVALID_MONEY_UNIT.getMessage());
+    }
+
+    @Test
+    void 범위는_맞지만_단위가_틀리면_예외가_발생한다() {
+        // given
+        int amount = 5_500;
+
+        // expected
+        assertThatThrownBy(() -> new Money(amount))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(INVALID_MONEY_UNIT.getMessage());
     }
 }
