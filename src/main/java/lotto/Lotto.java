@@ -33,6 +33,10 @@ public class Lotto {
         return new Lotto(numbers);
     }
 
+    public boolean contains(final LottoNumber number) {
+        return numbers.contains(number);
+    }
+
     private void validate(final List<LottoNumber> numbers) {
         validateSize(numbers);
         validateDuplicate(numbers);

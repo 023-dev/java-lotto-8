@@ -4,9 +4,11 @@ import java.util.List;
 import java.util.function.Supplier;
 import lotto.Lotto;
 import lotto.LottoMachine;
+import lotto.LottoNumber;
 import lotto.Money;
 import lotto.NumberPicker;
 import lotto.RandomNumberPicker;
+import lotto.WinningNumber;
 import lotto.dto.LottoResponse;
 import lotto.view.input.InputView;
 import lotto.view.output.OutputView;
@@ -28,6 +30,9 @@ public class LottoController {
         final Money paidMoney = requestMoney();
         final List<Lotto> lottos = lottoMachine.issueLotto(paidMoney);
         printPurchasedLottos(lottos);
+
+        final WinningNumber winningNumber = requestWinningNumber();
+        final
     }
 
     private Money requestMoney() {
@@ -43,6 +48,28 @@ public class LottoController {
                 .map(LottoResponse::new)
                 .toList();
         outputView.printPurchasedLottos(lottoResponses);
+    }
+
+    private WinningNumber requestWinningNumber() {
+        return requestHandler(() -> {
+            final Lotto winningLotto = requestWinningLotto();
+            final LottoNumber bonusNumber = requestBonusNumber();
+            return WinningNumber.from(winningLotto, bonusNumber);
+        });
+    }
+
+    private Lotto requestWinningLotto() {
+        return requestHandler(() -> {
+            outputView.printAskWinningLotto();
+            return Lotto.from(inputView.readWinningLotto());
+        });
+    }
+
+    private LottoNumber requestBonusNumber() {
+        return requestHandler(() -> {
+            outputView.printAskBonusNumber();
+            return inputView.readBonusNumber();
+        });
     }
 
     private <T> T requestHandler(Supplier<T> function) {

@@ -12,6 +12,8 @@ public class ConsoleOutputView implements OutputView {
     private static final String NUMBER_DELIMITER = ", ";
     private static final String LOTTO_PREFIX = "[";
     private static final String LOTTO_SUFFIX = "]";
+    private static final String ASK_WINNING_NUMBER_MESSAGE = "당첨 번호를 입력해 주세요.";
+    private static final String ASK_BONUS_NUMBER_MESSAGE = "보너스 번호를 입력해 주세요.";
 
     @Override
     public void printAskMoney() {
@@ -22,6 +24,16 @@ public class ConsoleOutputView implements OutputView {
     public void printPurchasedLottos(final List<LottoResponse> purchasedLottos) {
         print(PURCHASED_LOTTOS_FORMAT, purchasedLottos.size());
        purchasedLottos.forEach(this::printLotto);
+    }
+
+    @Override
+    public void printAskWinningLotto() {
+        print(ASK_WINNING_NUMBER_MESSAGE);
+    }
+
+    @Override
+    public void printAskBonusNumber() {
+        print(ASK_BONUS_NUMBER_MESSAGE);
     }
 
     private void printLotto(final LottoResponse lotto) {

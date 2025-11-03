@@ -6,4 +6,6 @@ import lotto.dto.LottoResponse;
 public interface OutputView {
     void printAskMoney();
     void printPurchasedLottos(final List<LottoResponse> purchasedLottos);
+    void printAskWinningLotto();
+    void printAskBonusNumber();
 }
