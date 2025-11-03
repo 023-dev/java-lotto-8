@@ -1,5 +1,9 @@
 package lotto.view.output;
 
+import java.util.List;
+import lotto.dto.LottoResponse;
+
 public interface OutputView {
     void printAskMoney();
+    void printPurchasedLottos(final List<LottoResponse> purchasedLottos);
 }

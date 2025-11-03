@@ -12,13 +12,9 @@ public class LottoMachine {
     }
 
     public List<Lotto> issueLotto(Money paidMoney) {
-        int issueCount = calculateIssueCount(paidMoney);
+        int issueCount = paidMoney.devide(LOTTO_PRICE);
         return IntStream.range(0, issueCount)
                 .mapToObj(i -> Lotto.issue(picker))
                 .toList();
-    }
-
-    private int calculateIssueCount(Money paidMoney) {
-        return paidMoney.amount() / LOTTO_PRICE.amount();
     }
 }

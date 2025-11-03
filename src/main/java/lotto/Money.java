@@ -14,6 +14,10 @@ public record Money(int amount) {
         validate(amount);
     }
 
+    public int devide(Money other) {
+        return amount() / other.amount();
+    }
+
     private void validate(final int amount) {
         validateRange(amount);
         validateUnit(amount);

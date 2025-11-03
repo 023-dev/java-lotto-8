@@ -4,6 +4,7 @@ import static lotto.LottoNumber.*;
 import static lotto.exception.ExceptionMessage.INVALID_LOTTO_NUMBER_DUPLICATE;
 import static lotto.exception.ExceptionMessage.INVALID_LOTTO_NUMBER_SIZE;
 
+import java.util.Collections;
 import java.util.List;
 import lotto.exception.LottoException;
 
@@ -17,7 +18,7 @@ public class Lotto {
         this.numbers = numbers;
     }
 
-    public static Lotto from(List<Integer> numbers) {
+    public static Lotto from(final List<Integer> numbers) {
         List<LottoNumber> lottoNumbers = numbers.stream()
                 .map(LottoNumber::new)
                 .toList();
@@ -32,7 +33,7 @@ public class Lotto {
         return new Lotto(numbers);
     }
 
-    private void validate(List<LottoNumber> numbers) {
+    private void validate(final List<LottoNumber> numbers) {
         validateSize(numbers);
         validateDuplicate(numbers);
     }
@@ -55,4 +56,7 @@ public class Lotto {
                 .count() != numbers.size();
     }
 
+    public List<LottoNumber> getNumbers() {
+        return Collections.unmodifiableList(numbers);
+    }
 }

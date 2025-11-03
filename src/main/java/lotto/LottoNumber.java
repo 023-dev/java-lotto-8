@@ -4,7 +4,7 @@ import static lotto.exception.ExceptionMessage.INVALID_LOTTO_NUMBER_RANGE;
 
 import lotto.exception.LottoException;
 
-public record LottoNumber(int number) {
+public record LottoNumber(int number) implements Comparable<LottoNumber> {
     private static final int MIN_NUMBER = 1;
     private static final int MAX_NUMBER = 45;
 
@@ -29,5 +29,10 @@ public record LottoNumber(int number) {
 
     public static int getMaxLottoNumber() {
         return MAX_NUMBER;
+    }
+
+    @Override
+    public int compareTo(LottoNumber other) {
+        return Integer.compare(this.number, other.number);
     }
 }
