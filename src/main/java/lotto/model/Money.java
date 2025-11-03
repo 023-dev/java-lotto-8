@@ -14,7 +14,7 @@ public record Money(int amount) {
         validate(amount);
     }
 
-    public int divide(Money other) {
+    public int divide(final Money other) {
         return amount() / other.amount();
     }
 

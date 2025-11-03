@@ -13,13 +13,13 @@ public class Lotto {
 
     private final List<LottoNumber> numbers;
 
-    private Lotto(List<LottoNumber> numbers) {
+    private Lotto(final List<LottoNumber> numbers) {
         validate(numbers);
         this.numbers = numbers;
     }
 
     public static Lotto from(final List<Integer> numbers) {
-        List<LottoNumber> lottoNumbers = numbers.stream()
+        final List<LottoNumber> lottoNumbers = numbers.stream()
                 .map(LottoNumber::new)
                 .toList();
         return new Lotto(lottoNumbers);

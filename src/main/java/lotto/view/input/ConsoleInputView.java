@@ -41,7 +41,7 @@ public class ConsoleInputView implements InputView {
 
     private int parseNumber(final String input) {
         try {
-            String normalized = input.replaceAll(WHITESPACE_REGEX, EMPTY);
+            final String normalized = input.replaceAll(WHITESPACE_REGEX, EMPTY);
             return Integer.parseInt(normalized);
         } catch (NumberFormatException e) {
             throw new LottoException(INVALID_NUMBER_FORMAT);
@@ -49,8 +49,8 @@ public class ConsoleInputView implements InputView {
     }
 
     private List<Integer> parseNumbers(final String input, final String delimiter) {
-        String normalized = input.replaceAll(WHITESPACE_REGEX, EMPTY);
-        String escapedDelimiter = Pattern.quote(delimiter);
+        final String normalized = input.replaceAll(WHITESPACE_REGEX, EMPTY);
+        final String escapedDelimiter = Pattern.quote(delimiter);
         return Arrays.stream(normalized.split(escapedDelimiter))
                 .map(this::parseNumber)
                 .toList();

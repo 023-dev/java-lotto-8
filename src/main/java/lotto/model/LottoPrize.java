@@ -15,14 +15,14 @@ public enum LottoPrize {
     private final int prizeMoney;
     private final String description;
 
-    LottoPrize(int matchCount, boolean bonusMatch, int prizeMoney, String description) {
+    LottoPrize(final int matchCount, final boolean bonusMatch, final int prizeMoney, final String description) {
         this.matchCount = matchCount;
         this.bonusMatch = bonusMatch;
         this.prizeMoney = prizeMoney;
         this.description = description;
     }
 
-    public static LottoPrize from(int matchCount, boolean bonusMatch) {
+    public static LottoPrize from(final int matchCount, final boolean bonusMatch) {
         return Arrays.stream(values())
                 .filter(prize -> prize.matchCount == matchCount)
                 .filter(prize -> prize.bonusMatch == bonusMatch)
@@ -36,9 +36,5 @@ public enum LottoPrize {
 
     public String getDescription() {
         return description;
-    }
-
-    public boolean isWinning() {
-        return this != NONE;
     }
 }

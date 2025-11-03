@@ -6,8 +6,8 @@ import java.util.List;
 
 public class RandomNumberPicker implements NumberPicker {
 
-    public List<Integer> pickNumbers(int startInclusive, int endInclusive, int count) {
-        List<Integer> numbers = Randoms.pickUniqueNumbersInRange(startInclusive, endInclusive, count);
+    public List<Integer> pickNumbers(final int startInclusive, final int endInclusive, final int count) {
+        final List<Integer> numbers = Randoms.pickUniqueNumbersInRange(startInclusive, endInclusive, count);
         return Collections.unmodifiableList(numbers);
     }
 }

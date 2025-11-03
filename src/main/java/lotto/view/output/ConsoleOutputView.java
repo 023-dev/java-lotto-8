@@ -61,8 +61,8 @@ public class ConsoleOutputView implements OutputView {
     }
 
     private void printPrizeCount(final LottoResult result, final LottoPrize prize) {
-        long count = result.getCountByPrize(prize);
-        String prizeInfo = String.format(RESULT_FORMAT,
+        final long count = result.getCountByPrize(prize);
+        final String prizeInfo = String.format(RESULT_FORMAT,
                 prize.getDescription(),
                 formatMoney(prize.getPrizeMoney()),
                 count);
@@ -74,7 +74,7 @@ public class ConsoleOutputView implements OutputView {
     }
 
     private void printLotto(final LottoResponse lotto) {
-        String numbers = lotto.numbers().stream()
+        final String numbers = lotto.numbers().stream()
                 .sorted()
                 .map(LottoNumber::number)
                 .map(String::valueOf)

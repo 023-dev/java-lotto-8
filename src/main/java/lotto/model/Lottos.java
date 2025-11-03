@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 public class Lottos {
     private final List<Lotto> lottos;
 
-    public Lottos(List<Lotto> lottos) {
+    public Lottos(final List<Lotto> lottos) {
         this.lottos = lottos;
     }
 
@@ -20,8 +20,8 @@ public class Lottos {
         return Collections.unmodifiableList(lottos);
     }
 
-    public LottoResult getResult(WinningNumber winningNumber) {
-        Map<LottoPrize, Long> prizeCount = lottos.stream()
+    public LottoResult getResult(final WinningNumber winningNumber) {
+        final Map<LottoPrize, Long> prizeCount = lottos.stream()
                 .map(winningNumber::match)
                 .collect(Collectors.groupingBy(
                         prize -> prize,

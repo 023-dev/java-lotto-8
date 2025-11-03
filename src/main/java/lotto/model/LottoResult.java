@@ -5,11 +5,11 @@ import java.util.Map;
 public class LottoResult {
     private final Map<LottoPrize, Long> prizeCount;
 
-    public LottoResult(Map<LottoPrize, Long> prizeCount) {
+    public LottoResult(final Map<LottoPrize, Long> prizeCount) {
         this.prizeCount = prizeCount;
     }
 
-    public long getCountByPrize(LottoPrize prize) {
+    public long getCountByPrize(final LottoPrize prize) {
         return prizeCount.getOrDefault(prize, 0L);
     }
 
@@ -19,15 +19,11 @@ public class LottoResult {
                 .sum();
     }
 
-    public double calculateProfitRate(Money investment) {
+    public double calculateProfitRate(final Money investment) {
         if (investment.amount() == 0) {
             return 0.0;
         }
         return (double) getTotalPrizeMoney() / investment.amount() * 100;
-    }
-
-    public Map<LottoPrize, Long> getPrizeCount() {
-        return Map.copyOf(prizeCount);
     }
 }
 

@@ -11,8 +11,8 @@ public class LottoMachine {
         this.picker = picker;
     }
 
-    public Lottos issueLotto(Money paidMoney) {
-        int issueCount = paidMoney.divide(LOTTO_PRICE);
+    public Lottos issueLotto(final Money paidMoney) {
+        final int issueCount = paidMoney.divide(LOTTO_PRICE);
         List<Lotto> lottos = IntStream.range(0, issueCount)
                 .mapToObj(i -> Lotto.issue(picker))
                 .toList();

@@ -4,5 +4,5 @@ import java.util.List;
 
 @FunctionalInterface
 public interface NumberPicker {
-    List<Integer> pickNumbers(int startInclusive, int endInclusive, int count);
+    List<Integer> pickNumbers(final int startInclusive, final int endInclusive, final int count);
 }
