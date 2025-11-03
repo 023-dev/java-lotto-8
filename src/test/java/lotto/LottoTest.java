@@ -1,5 +1,6 @@
 package lotto;
 
+import static lotto.exception.ExceptionMessage.INVALID_LOTTO_NUMBER_DUPLICATE;
 import static lotto.exception.ExceptionMessage.INVALID_LOTTO_NUMBER_SIZE;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
@@ -25,7 +26,8 @@ class LottoTest extends TestSupport {
 
         // expected
         assertThatThrownBy(() -> Lotto.from(numbers))
-                .isInstanceOf(IllegalArgumentException.class);
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(INVALID_LOTTO_NUMBER_DUPLICATE.getMessage());
     }
 
 }

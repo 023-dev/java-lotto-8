@@ -1,5 +1,6 @@
 package lotto;
 
+import static lotto.exception.ExceptionMessage.INVALID_LOTTO_NUMBER_DUPLICATE;
 import static lotto.exception.ExceptionMessage.INVALID_LOTTO_NUMBER_SIZE;
 
 import java.util.List;
@@ -24,12 +25,25 @@ public class Lotto {
 
     private void validate(List<LottoNumber> numbers) {
         validateSize(numbers);
+        validateDuplicate(numbers);
     }
 
     private void validateSize(final List<LottoNumber> numbers) {
         if (numbers.size() != NUMBERS_SIZE) {
             throw new LottoException(INVALID_LOTTO_NUMBER_SIZE);
         }
+    }
+
+    private void validateDuplicate(final List<LottoNumber> numbers) {
+        if (isDuplicate(numbers)) {
+            throw new LottoException(INVALID_LOTTO_NUMBER_DUPLICATE);
+        }
+    }
+
+    private boolean isDuplicate(final List<LottoNumber> numbers) {
+        return numbers.stream()
+                .distinct()
+                .count() != numbers.size();
     }
 
 }
